@@ -14,6 +14,7 @@ class Client {
         $this->reservationArray = [];
     }
 
+    // SETTERS
     public function set_courriel(string $email) : void {
         if (filter_var($email)) {
             $this->courriel = (string) $email;
@@ -22,6 +23,7 @@ class Client {
         }
     }
 
+    // GETTERS
     public function get_courriel() : string {
         return $this->courriel;
     }
@@ -35,6 +37,7 @@ class Client {
             return $this->reservationArray[$index];
     }
 
+    // METHODS
     public function add_reservation(object $reservation) : void {
         $this->reservationArray[] = (object) $reservation;
     }

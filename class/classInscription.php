@@ -202,7 +202,6 @@ class Inscription {
     // METHODS
     public function print_inscription_info() : string {
         $html = (string) "
-            <h1>Informations reçues !</h1>
             <ul>
                 <li><strong>Profil :</strong>
                     <ul>

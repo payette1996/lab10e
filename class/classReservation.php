@@ -56,7 +56,24 @@ class Reservation {
     }
 
     public function print_reservation_info() /*:string*/ {
-        $html = (string) "";
+        $html = (string) "
+            <ul>
+                <li><strong>Date début : </strong>$this->dateDebut</li>
+                <li>Date fin : </strong>$this->dateFin</li>
+                <li>
+                    Informations sur la voiture : 
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        ";
     }
 }
 ?>

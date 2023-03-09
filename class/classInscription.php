@@ -23,111 +23,81 @@ class Inscription {
     private bool $promotions;
     private bool $modalites;
 
-    public function __construct(
-        string $prenom,
-        string $nom,
-        string $courriel,
-        string $motPasse,
-        string $pays,
-        string $adresse,
-        string $ville,
-        string $province,
-        string $codePostal,
-        string $typeTelephone,
-        int $telephone,
-        string $paysDelivrance,
-        string $permis,
-        string $dateNaissance,
-        string $dateExpiration,
-        bool $promotions,
-        bool $modalites
-    ) {
-        $this->set_prenom($prenom);
-        $this->set_nom($nom);
-        $this->set_courriel($courriel);
-        $this->set_motPasse($motPasse);
-        $this->set_pays($pays);
-        $this->set_adresse($adresse);
-        $this->set_ville($ville);
-        $this->set_province($province);
-        $this->set_codePostal($codePostal);
-        $this->set_typeTelephone($typeTelephone);
-        $this->set_telephone($telephone);
-        $this->set_paysDelivrance($paysDelivrance);
-        $this->set_permis($permis);
-        $this->set_dateNaissance($dateNaissance);
-        $this->set_dateExpiration($dateExpiration);
-        $this->set_promotions($promotions);
-        $this->set_modalites($modalites);
+    public function __construct(...$args) {
+        foreach($args as $key => $value) {
+            $method = "set_$key";
+            if (method_exists($this, $method))
+                return $this->$method($value);
+        }
     }
 
     // SETTERS
     public function set_prenom(string $prenom) : void {
-        $this->prenom = $prenom;
+        return $this->prenom = $prenom;
     }
 
     public function set_nom(string $nom) : void {
-        $this->nom = $nom;
+        return $this->nom = $nom;
     }
 
     public function set_courriel(string $courriel) : void {
-        $this->courriel = $courriel;
+        return $this->courriel = $courriel;
     }
 
     public function set_motPasse(string $motPasse) : void {
-        $this->motPasse = $motPasse;
+        return $this->motPasse = $motPasse;
     }
 
     public function set_pays(string $pays) : void {
-        $this->pays = $pays;
+        return $this->pays = $pays;
     }
 
     public function set_adresse(string $adresse) : void {
-        $this->adresse = $adresse;
+        return $this->adresse = $adresse;
     }  
 
     public function set_ville(string $ville) : void {
-        $this->ville = $ville;
+        return $this->ville = $ville;
     }
 
     public function set_province(string $province) : void {
-        $this->province = $province;
+        return $this->province = $province;
     }
 
     public function set_codePostal(string $codePostal) : void {
-        $this->codePostal = $codePostal;
+        return $this->codePostal = $codePostal;
     }
 
     public function set_typeTelephone(string $typeTelephone) : void {
-        $this->typeTelephone = $typeTelephone;
+        return $this->typeTelephone = $typeTelephone;
     }
 
     public function set_telephone(int $telephone) : void {
-        $this->telephone = $telephone;
+        return $this->telephone = $telephone;
     }
 
     public function set_paysDelivrance(string $paysDelivrance) : void {
-        $this->paysDelivrance = $paysDelivrance;
+        return $this->paysDelivrance = $paysDelivrance;
     }
 
     public function set_permis(string $permis) : void {
-        $this->permis = $permis;
+        return $this->permis = $permis;
     }
 
     public function set_dateNaissance(string $dateNaissance) : void {
-        $this->dateNaissance = $dateNaissance;
+        return $this->dateNaissance = $dateNaissance;
     }
 
     public function set_dateExpiration(string $dateExpiration) : void {
-        $this->dateExpiration = $dateExpiration;
+        return $this->dateExpiration = $dateExpiration;
     }
 
     public function set_promotions(bool $promotions) : void {
-        $this->promotions = $promotions;
+        return $this->promotions = $promotions;
     }
 
     public function set_modalites(bool $modalites) : bool {
-        return $this->modalites;
+        return $this->modalites = $modalites;
     }
 
     // GETTERS
@@ -205,35 +175,35 @@ class Inscription {
             <ul>
                 <li><strong>Profil :</strong>
                     <ul>
-                        <li>Prénom : {$this->prenom}</li>
-                        <li>Nom : {$this->nom}</li>
-                        <li>Courriel : {$this->courriel}</li>
-                        <li>Mot de passe hashé :<br>{$this->motPasse}</li>
+                        <li>Prénom : {$this->get_prenom()}</li>
+                        <li>Nom : {$this->get_nom()}</li>
+                        <li>Courriel : {$this->get_courriel()}</li>
+                        <li>Mot de passe hashé :<br>{$this->get_motPasse()}</li>
                     </ul>
                 </li>
                 <li><strong>Coordonnées :</strong>
                     <ul>
-                        <li>Pays : {$this->pays}</li>
-                        <li>Adresse : {$this->adresse}</li>
-                        <li>Ville : {$this->ville}</li>
-                        <li>Province : {$this->province}</li>
-                        <li>Code Postal : {$this->codePostal}</li>
-                        <li>Type de téléphone : {$this->typeTelephone}</li>
-                        <li>Numéro de téléphone : {$this->telephone}</li>
+                        <li>Pays : {$this->get_pays()}</li>
+                        <li>Adresse : {$this->get_adresse()}</li>
+                        <li>Ville : {$this->get_ville()}</li>
+                        <li>Province : {$this->get_province()}</li>
+                        <li>Code Postal : {$this->get_codePostal()}</li>
+                        <li>Type de téléphone : {$this->get_typeTelephone()}</li>
+                        <li>Numéro de téléphone : {$this->get_telephone()}</li>
                     </ul>
                 </li>
                 <li><strong>Informations du condeucteur :</strong>
                     <ul>
-                        <li>Pays de délivrance : {$this->paysDelivrance}</li>
-                        <li>Date de naissance : {$this->dateNaissance}</li>
-                        <li>Numéro de permis : {$this->permis}</li>
-                        <li>Date d'expiration : {$this->dateExpiration}</li>
+                        <li>Pays de délivrance : {$this->get_paysDelivrance()}</li>
+                        <li>Date de naissance : {$this->get_dateNaissance()}</li>
+                        <li>Numéro de permis : {$this->get_permis()}</li>
+                        <li>Date d'expiration : {$this->get_dateExpiration()}</li>
                     </ul>
                 </li>
                 <li><strong>Préférences</strong>
                     <ul>
-                        <li>Infolettre : {$this->promotions}</li>
-                        <li>Modalités : {$this->modalites}</li>
+                        <li>Infolettre : {$this->get_promotions()}</li>
+                        <li>Modalités : {$this->get_modalites()}</li>
                     </ul>
                 </li>
             </ul>

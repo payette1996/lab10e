@@ -13,8 +13,13 @@ class Voiture {
     private string $image;
     private string $description;
 
-    public function __construct() {
-
+    public function __construct(array ...$args) {
+        foreach ($args as $key => $value) {
+           $method = "set_$key";
+           if (method_exists($this, $method)) {
+               return $this->$method($value);
+           }
+        }  
     }
 
     // SETTERS

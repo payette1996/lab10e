@@ -131,71 +131,71 @@ class Inscription {
     }
 
     // GETTERS
-    public function get_prenom(string $prenom) : string {
+    public function get_prenom() : string {
         return $this->prenom;
     }
 
-    public function get_nom(string $nom) : string {
+    public function get_nom() : string {
         return $this->nom;
     }
 
-    public function get_courriel(string $courriel) : string {
+    public function get_courriel() : string {
         return $this->courriel;
     }
 
-    public function get_motPasse(string $motPasse) : string {
+    public function get_motPasse() : string {
         return $this->motPasse;
     }
 
-    public function get_pays(string $pays) : string {
+    public function get_pays() : string {
         return $this->pays;
     }
 
-    public function get_adresse(string $adresse) : string {
+    public function get_adresse() : string {
         return $this->adresse;
     }  
 
-    public function get_ville(string $ville) : string {
+    public function get_ville() : string {
         return $this->ville;
     }
 
-    public function get_province(string $province) : string {
+    public function get_province() : string {
         return $this->province;
     }
 
-    public function get_codePostal(string $codePostal) : string {
+    public function get_codePostal() : string {
         return $this->codePostal;
     }
 
-    public function get_typeTelephone(string $typeTelephone) : string {
+    public function get_typeTelephone() : string {
         return $this->typeTelephone;
     }
 
-    public function get_telephone(int $telephone) : int {
+    public function get_telephone() : int {
         return $this->telephone;
     }
 
-    public function get_paysDelivrance(string $paysDelivrance) : string {
+    public function get_paysDelivrance() : string {
         return $this->paysDelivrance;
     }
 
-    public function get_permis(string $permis) : string {
+    public function get_permis() : string {
         return $this->permis;
     }
 
-    public function get_dateNaissance(string $dateNaissance) : string {
+    public function get_dateNaissance() : string {
         return $this->dateNaissance;
     }
 
-    public function get_dateExpiration(string $dateExpiration) : string {
+    public function get_dateExpiration() : string {
         return $this->dateExpiration;
     }
 
-    public function get_promotions(bool $promotions) : bool {
+    public function get_promotions() : bool {
         return $this->promotions;
     }
 
-    public function get_modalites(bool $modalites) : bool {
+    public function get_modalites() : bool {
         return $this->modalites;
     }
 

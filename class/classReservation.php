@@ -58,8 +58,8 @@ class Reservation {
     public function print_reservation_info() /*:string*/ {
         $html = (string) "
             <ul>
-                <li><strong>Date début : </strong>$this->dateDebut</li>
-                <li>Date fin : </strong>$this->dateFin</li>
+                <li><strong>Date début : </strong>{$this->get_dateDebut()}</li>
+                <li>Date fin : </strong>{$this->get_dateFin()}</li>
             </ul>
         ";
     }

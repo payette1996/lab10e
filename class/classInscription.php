@@ -126,7 +126,7 @@ class Inscription {
         $this->promotions = $promotions;
     }
 
-    public function set_modalites(bool $modalites) : string {
+    public function set_modalites(bool $modalites) : bool {
         return $this->modalites;
     }
 

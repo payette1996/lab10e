@@ -55,7 +55,7 @@ class Reservation {
         return false;
     }
 
-    public function print_reservation_info() : string {
+    public function print_reservation_info() /*:string*/ {
         $html = (string) "";
     }
 }

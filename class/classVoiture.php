@@ -1,15 +1,16 @@
 <?php
-    /***********************************/
-    /* AJOUTEZ LA CLASSE "VOITURE" ICI */
-    /***********************************/
+declare(strict_types=1);
+/***********************************/
+/* AJOUTEZ LA CLASSE "VOITURE" ICI */
+/***********************************/
 
-    class Voiture {
+class Voiture {
 
 
-        // SETTERS
+    // SETTERS
 
-        // GETTERS
+    // GETTERS
 
-        // METHODS
-    }
+    // METHODS
+}
 ?>

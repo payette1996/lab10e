@@ -50,11 +50,11 @@ class Client {
     }
 
     public function print_client_info() : string {
-        $html = (string) "<strong>{$this->courriel}</strong><ul>";
+        $html = (string) "<strong>{$this->get_courriel()}</strong><ul>";
 
         $listItems = (string) "";
         foreach($this->reservationArray as $reservation) {
-            $listItems .= (string) "<li>{$reservation->dateFin}</li>";
+            $listItems .= (string) "<li>{$reservation->get_dateFin()}</li>";
         }
 
         $html .= (string) $listItems .= (string) "</ul>";

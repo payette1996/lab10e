@@ -84,13 +84,13 @@ class Voiture {
     public function print_voiture_info() : string {
         $html = (string) "
             <ul>
-                <li>ID : {$this->id}</li>
-                <li>Marque : {$this->marque}</li>
-                <li>Modèle : {$this->modele}</li>
-                <li>Catégorie : {$this->categorie}</li>
-                <li>Nombre de passagers : {$this->nbPassager}</li>
-                <li>Image : <img src='{$this->image}'></li>
-                <li>Description : {$this->description}</li>
+                <li>ID : {$this->get_id()}</li>
+                <li>Marque : {$this->get_marque()}</li>
+                <li>Modèle : {$this->get_modele()}</li>
+                <li>Catégorie : {$this->get_categorie()}</li>
+                <li>Nombre de passagers : {$this->get_nbPassager()}</li>
+                <li>Image : <img src='{$this->get_image()}'></li>
+                <li>Description : {$this->get_description()}</li>
             </ul>
         ";
 

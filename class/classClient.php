@@ -14,8 +14,12 @@ class Client {
         $this->reservationArray = [];
     }
 
-    public function set_courriel(string $email) :void {
-        $this->courriel = (string) $email;
+    public function set_courriel(string $email) : void {
+        if (filter_var($email)) {
+            $this->courriel = (string) $email;
+        } else {
+            throw new Exception("Courriel invalide");
+        }
     }
 
     public function get_courriel() : string {

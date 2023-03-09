@@ -6,8 +6,8 @@
     require_once("classVoiture.php");
 
     class Reservation {
-        private string $dateDebut;
-        private string $dateFin;
+        private object $dateDebut;
+        private object $dateFin;
         private Voiture $voiture;
 
         public function __construct(string $dateDebut, string $dateFin, object $voiture) {
@@ -17,8 +17,12 @@
         }
 
         // SETTERS
-        public function set_dateDebut(string $dateDebut) : void {
-            $this->dateDebut = $dateDebut;
+        public function set_dateDebut(object $dateDebut) : void {
+            if ($this->validateDate($dateDebut)) {
+                $this->dateDebut = $dateDebut;
+            } else {
+                throw new Exception("Date invalide");
+            }
         }
 
         public function set_dateFin(string $dateFin) : void {
@@ -30,9 +34,28 @@
         }
 
         // GETTERS
+        public function get_dateDebut() : object {
+            return $this->dateDebut;
+        }
 
-        
+        public function get_dateFin() : object {
+            return $this->dateFin;
+        }
+
+        public function get_voiture() : object {
+            return $this->voiture;
+        }
+
         // METHODS
+        public function validateDate(object $date) : bool {
+            if ($date->format("Y-m-d"))
+                return true;
 
+            return false;
+        }
+
+        public function print_reservation_info() : string {
+            
+        }
     }
 ?>

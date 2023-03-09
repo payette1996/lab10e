@@ -198,8 +198,47 @@
             return $this->modalites;
         }
 
-        // public function print_inscription_info() : string {
-            
-        // }
+        public function print_inscription_info() : string {
+            $html = (string) "
+                <h1>Informations reçues !</h1>
+                <ul>
+                    <li><strong>Profil :</strong>
+                        <ul>
+                            <li>Prénom : {$this->prenom}</li>
+                            <li>Nom : {$this->nom}</li>
+                            <li>Courriel : {$this->courriel}</li>
+                            <li>Mot de passe hashé :<br>{$this->motPasse}</li>
+                        </ul>
+                    </li>
+                    <li><strong>Coordonnées :</strong>
+                        <ul>
+                            <li>Pays : {$this->pays}</li>
+                            <li>Adresse : {$this->adresse}</li>
+                            <li>Ville : {$this->ville}</li>
+                            <li>Province : {$this->province}</li>
+                            <li>Code Postal : {$this->codePostal}</li>
+                            <li>Type de téléphone : {$this->typeTelephone}</li>
+                            <li>Numéro de téléphone : {$this->telephone}</li>
+                        </ul>
+                    </li>
+                    <li><strong>Informations du condeucteur :</strong>
+                        <ul>
+                            <li>Pays de délivrance : {$this->paysDelivrance}</li>
+                            <li>Date de naissance : {$this->dateNaissance}</li>
+                            <li>Numéro de permis : {$this->permis}</li>
+                            <li>Date d'expiration : {$this->dateExpiration}</li>
+                        </ul>
+                    </li>
+                    <li><strong>Préférences</strong>
+                        <ul>
+                            <li>Infolettre : {$this->promotions}</li>
+                            <li>Modalités : {$this->modalites}</li>
+                        </ul>
+                    </li>
+                </ul>
+            ";
+
+            return $html;
+        }
     }
 ?>

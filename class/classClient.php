@@ -42,8 +42,8 @@ class Client {
         }
     }
 
-    public function print_client_info(object $client) : string {
-        $html = (string) "<strong>{$client->email}</strong><ul>";
+    public function print_client_info() : string {
+        $html = (string) "<strong>{$this->courriel}</strong><ul>";
 
         $listItems = (string) "";
         foreach($this->reservationArray as $reservation) {

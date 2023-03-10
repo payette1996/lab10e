@@ -20,8 +20,8 @@ class Inscription {
     private string $permis;
     private string $dateNaissance;
     private string $dateExpiration;
-    private string $promotions;
-    private string $modalites;
+    private string $promotions = "Non";
+    private string $modalites = "Non";
 
     public function __construct(array $user) {
         foreach($user as $key => $value) {
@@ -46,7 +46,7 @@ class Inscription {
     }
 
     public function set_motPasse(string $motPasse) : void {
-        $this->motPasse = (string) $motPasse;
+        $this->motPasse = (string) password_hash($motPasse, PASSWORD_DEFAULT);
     }
 
     public function set_pays(string $pays) : void {
@@ -93,12 +93,12 @@ class Inscription {
         $this->dateExpiration = (string) $dateExpiration;
     }
 
-    public function set_promotions(string $promotions = "Non") : void {
-        $this->set_promotions($promotions);
+    public function set_promotions(string $promotions) : void {
+        $this->promotions = (string) $promotions;
     }
 
-    public function set_modalites(string $modalites = "Non") : void {
-        $this->set_modalites($modalites);
+    public function set_modalites(string $modalites) : void {
+        $this->modalites = (string) $modalites;
     }
 
     // GETTERS
@@ -162,16 +162,16 @@ class Inscription {
         return $this->dateExpiration;
     }
 
-    public function get_promotions() : bool {
+    public function get_promotions() : string {
         return $this->promotions;
     }
 
-    public function get_modalites() : bool {
+    public function get_modalites() : string {
         return $this->modalites;
     }
 
     // METHODS
-    public function print_inscription_info() : string {
+    public function print_inscription_info() : void {
         $html = (string) "
             <ul>
                 <li><strong>Profil :</strong>
@@ -210,7 +210,7 @@ class Inscription {
             </ul>
         ";
 
-        return $html;
+        echo $html;
     }
 }
 ?>

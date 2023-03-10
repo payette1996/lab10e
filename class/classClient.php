@@ -33,8 +33,11 @@ class Client {
     }
 
     public function get_reservation(int $index) : object {
-        if (array_key_exists($index, $this->reservationArray))
+        if (array_key_exists($index, $this->reservationArray)) {
             return $this->reservationArray[$index];
+        } else {
+            return "Aucune réservation";
+        }
     }
 
     // METHODS
@@ -42,10 +45,12 @@ class Client {
         $this->reservationArray[] = (object) $reservation;
     }
 
-    public function delete_reservation(object $reservation) : void {
-        foreach ($this->reservationArray as $key => $value) {
-            if ($reservation === $value)
-                unset($this->reservationArray[$key]);
+    public function delete_reservation(int $id) : void {
+        $keys = array_keys($this->reservationArray);
+        foreach($keys as $key => $value) {
+            if($id == $value) {
+                array_splice($this->reservationArray, $key, 1);
+            }
         }
     }
 

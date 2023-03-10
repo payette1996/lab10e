@@ -4,6 +4,8 @@
 
     require_once './inc/header.php';
     require_once './class/classClient.php';
+    require_once './class/classReservation.php'; // Ligne ajoutée par l'étudiant afin d'importer la class Reservation
+    require_once './class/classVoiture.php'; // Ligne ajoutée par l'étudiant afin d'importer la class Reservation
 
     if (isset($_SESSION['utilisateur'])) {
         $clientObj = unserialize($_SESSION['utilisateur']);

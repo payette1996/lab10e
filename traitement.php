@@ -4,6 +4,7 @@
 
     require_once './class/classInscription.php';
     require_once './class/classClient.php';
+    require_once './class/classReservation.php'; // Ligne ajoutée par l'étudiant afin d'importer la class Reservation
     require_once './inc/car-info.php';
 
     // Si le formulaire provient de la page "Inscription"
@@ -65,10 +66,9 @@
     // Si le formulaire provient de la page "Réserver une voiture"
     else if (isset($_POST['action']) && $_POST['action'] === 'reservation') {
         require_once './inc/header.php';
-
+        
         $clientObj = unserialize($_SESSION['utilisateur']);
         $voitureObj = selectCarById($_POST['voiture'], CAR_INFO);
-
         $reservationObj = new Reservation($_POST['dateDebut'], $_POST['dateFin'], $voitureObj);
         $clientObj->add_reservation($reservationObj);
 

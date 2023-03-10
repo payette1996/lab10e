@@ -16,37 +16,39 @@ class Voiture {
     public function __construct(array $voiture) {
         foreach($voiture as $key => $value) {
             $method = "set_$key";
-            $this->$method($value);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
         }
     }
 
     // SETTERS
     public function set_id(int $id) : void {
-        $this->id = $id;
+        $this->id = (int) $id;
     }
 
     public function set_marque(string $marque) : void {
-        $this->marque = $marque;
+        $this->marque = (string) $marque;
     }
 
     public function set_modele(string $modele) : void {
-        $this->modele = $modele;
+        $this->modele = (string) $modele;
     }
 
     public function set_categorie(string $categorie) : void {
-        $this->categorie = $categorie;
+        $this->categorie = (string) $categorie;
     }
 
     public function set_nbPassager(int $nbPassager) : void {
-        $this->nbPassager = $nbPassager;
+        $this->nbPassager = (int) $nbPassager;
     }
 
     public function set_image(string $image) : void {
-        $this->image = $image;
+        $this->image = (string) $image;
     }
 
     public function set_description(string $description) : void {
-        $this->description = $description;
+        $this->description = (string) $description;
     }
 
     // GETTERS

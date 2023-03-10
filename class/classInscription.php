@@ -20,84 +20,85 @@ class Inscription {
     private string $permis;
     private string $dateNaissance;
     private string $dateExpiration;
-    private bool $promotions;
-    private bool $modalites;
+    private string $promotions;
+    private string $modalites;
 
-    public function __construct(...$args) {
-        foreach($args as $key => $value) {
+    public function __construct(array $user) {
+        foreach($user as $key => $value) {
             $method = "set_$key";
-            if (method_exists($this, $method))
-                return $this->$method($value);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
         }
     }
 
     // SETTERS
     public function set_prenom(string $prenom) : void {
-        $this->prenom = $prenom;
+        $this->prenom = (string) $prenom;
     }
 
     public function set_nom(string $nom) : void {
-        $this->nom = $nom;
+        $this->nom = (string) $nom;
     }
 
     public function set_courriel(string $courriel) : void {
-        $this->courriel = $courriel;
+        $this->courriel = (string) $courriel;
     }
 
     public function set_motPasse(string $motPasse) : void {
-        $this->motPasse = $motPasse;
+        $this->motPasse = (string) $motPasse;
     }
 
     public function set_pays(string $pays) : void {
-        $this->pays = $pays;
+        $this->pays = (string) $pays;
     }
 
     public function set_adresse(string $adresse) : void {
-        $this->adresse = $adresse;
+        $this->adresse = (string) $adresse;
     }  
 
     public function set_ville(string $ville) : void {
-        $this->ville = $ville;
+        $this->ville = (string) $ville;
     }
 
     public function set_province(string $province) : void {
-        $this->province = $province;
+        $this->province = (string) $province;
     }
 
     public function set_codePostal(string $codePostal) : void {
-        $this->codePostal = $codePostal;
+        $this->codePostal = (string) $codePostal;
     }
 
     public function set_typeTelephone(string $typeTelephone) : void {
-        $this->typeTelephone = $typeTelephone;
+        $this->typeTelephone = (string) $typeTelephone;
     }
 
-    public function set_telephone(int $telephone) : void {
-        $this->telephone = $telephone;
+    public function set_telephone(string $telephone) : void {
+        $this->telephone = (int) intval($telephone);
     }
 
     public function set_paysDelivrance(string $paysDelivrance) : void {
-        $this->paysDelivrance = $paysDelivrance;
+        $this->paysDelivrance = (string) $paysDelivrance;
     }
 
     public function set_permis(string $permis) : void {
-        $this->permis = $permis;
+        $this->permis = (string) $permis;
     }
 
     public function set_dateNaissance(string $dateNaissance) : void {
-        $this->dateNaissance = $dateNaissance;
+        $this->dateNaissance = (string) $dateNaissance;
     }
 
     public function set_dateExpiration(string $dateExpiration) : void {
-        $this->dateExpiration = $dateExpiration;
+        $this->dateExpiration = (string) $dateExpiration;
     }
 
-    public function set_promotions(bool $promotions) : void {
-        $this->promotions = $promotions;
+    public function set_promotions(string $promotions = "Non") : void {
+        $this->set_promotions($promotions);
     }
 
-    public function set_modalites(bool $modalites) : void {
-        $this->modalites = $modalites;
+    public function set_modalites(string $modalites = "Non") : void {
+        $this->set_modalites($modalites);
     }
 
     // GETTERS
